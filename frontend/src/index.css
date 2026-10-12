@@ -1,0 +1,323 @@
+/*======== カスタムプロパティ ========*/
+:root {
+  --c-bg: #0f172a;
+  /* 最背面などに使う色 */
+  --c-panel: #131d2b;
+  /* カードなどの背景に使う色 */
+  --c-border: #3a4b65;
+  /* カードや入力欄などの枠線に使う色 */
+  --c-field: #25324a;
+  /* 入力欄などの背景に使う色 */
+  --c-text: #f1f5f9;
+  /* 主要なテキストなどに使う色 */
+  --c-text-muted: #94a3b8;
+  /* 補助的なテキストなどに使う色 */
+  --c-primary: #3b82f6;
+  /* フォームの送信ボタンなどに使う色 */
+  --c-danger: #ef4444;
+  /* エラーメッセージなどに使う色 */
+  --radius: 10px;
+  /* カードやボタンなどの角丸に使う値 */
+  --transition: 200ms ease;
+  /* ボタンやリンクなどの変化に使う遷移時間 */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background: var(--c-bg);
+  color: var(--c-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/*======== ヘッダー ========*/
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1.25rem 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  gap: 0.5rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+header ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+header button {
+  display: inline-flex;
+  align-items: center;
+  appearance: none;
+  border: 1px solid var(--c-border);
+  background: transparent;
+  color: var(--c-text);
+  padding: 0.75rem 1.1rem 0.7rem;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition:
+    background var(--transition),
+    color var(--transition);
+}
+
+header button:hover {
+  background: var(--c-border);
+  color: var(--c-text);
+}
+
+header button svg {
+  width: 1em;
+  height: 1em;
+}
+
+header button span {
+  line-height: 1;
+}
+
+/*======== ログイン、会員登録フォーム用カード ========*/
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+}
+
+.auth-card {
+  width: min(420px, 90%);
+  background: var(--c-panel);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  padding: 2.75rem 2.25rem 2.25rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  position: relative;
+}
+
+.auth-card h2 {
+  text-align: center;
+  margin: 0 0 2rem;
+  font-size: 1.75rem;
+}
+
+/*======== ログイン、会員登録フォームの切り替え用リンク ========*/
+.auth-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.auth-toggle button {
+  background: none;
+  border: none;
+  color: var(--c-primary);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: color var(--transition);
+}
+
+.auth-toggle button:hover {
+  color: var(--c-text);
+}
+
+/*======== ToDO追加フォームのエリア ========*/
+.todo-add-form-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.todo-add-form-wrapper form {
+  width: 100%;
+  max-width: 900px;
+  padding: 1.25rem 1.5rem;
+}
+
+/*======== 入力フォーム ========*/
+form label {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  display: inline-block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  background: var(--c-field);
+  color: var(--c-text);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+input[type="email"] {
+  margin-bottom: 1.25rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--c-text);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.35);
+}
+
+input::placeholder {
+  color: var(--c-text-muted);
+}
+
+form .error-msg {
+  color: var(--c-danger);
+  margin: 0.5rem 0;
+  font-size: 0.85rem;
+}
+
+form button {
+  width: 100%;
+  margin: 1.5rem 0;
+  padding: 0.65rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--c-primary);
+  color: #fff;
+  cursor: pointer;
+  transition: filter var(--transition);
+}
+
+form button:hover {
+  filter: brightness(1.1);
+}
+
+/*======== ToDoリスト ========*/
+.todo-list-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.todo-list-wrapper ul {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  padding: 1.25rem 1.5rem;
+  margin: 0 auto 4rem;
+  list-style: none;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.todo-list-wrapper li {
+  display: flex;
+  justify-content: space-between;
+  background: var(--c-panel);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  position: relative;
+  gap: 0.7rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+.todo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.todo-created-at {
+  font-size: 0.85rem;
+  color: var(--c-text-muted);
+  margin-top: 0.5rem;
+}
+
+.todo-edit-form-wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.todo-edit-form-wrapper .cancel-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.todo-edit-form-wrapper .cancel-btn-wrapper button {
+  background: none;
+  border: none;
+  color: var(--c-primary);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: color var(--transition);
+}
+
+.todo-edit-form-wrapper .cancel-btn-wrapper button:hover {
+  color: var(--c-text);
+}
+
+/*======== ToDoの各種ボタン ========*/
+.todo-btns {
+  display: flex;
+  align-items: start;
+  gap: 0.25rem;
+}
+
+.todo-btns button {
+  background: none;
+  border: none;
+  color: var(--c-text-muted);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: color var(--transition);
+}
+
+.todo-btns button:hover {
+  color: var(--c-text);
+}
+
+/*======== スクロールバー ========*/
+/* 全体 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* 背景 */
+::-webkit-scrollbar-track {
+  background: var(--c-bg);
+}
+
+/* つまみ */
+::-webkit-scrollbar-thumb {
+  background: var(--c-border);
+  border-radius: 4px;
+}
+
+/* つまみ（ホバー時） */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--c-field);
+}
